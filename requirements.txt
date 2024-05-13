@@ -1,5 +1,5 @@
 fastapi
 uvicorn
 uuid
-sqlite3
+SQLite3-0611
 fastapi-socketio==0.0.10
