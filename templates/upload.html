@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Upload Image and Location ({{ type }})</h1>
+    </header>
+    <main>
+        <section id="image-upload">
+            <form id="image-upload-form" action="/upload/image" method="POST" enctype="multipart/form-data">
+                <h2>Upload the image using either of the options</h2>
+                <button type="button" id="select-from-folder">Choose from Folder</button>
+                <button type="button" id="capture-from-camera">Capture from Camera</button>
+                <div>
+                    <h2>Choose the location using either of the options</h2>
+                    <label>
+                        <input type="radio" name="location-option" value="current" checked> Use Current Location
+                    </label>
+                    <label>
+                        <input type="radio" name="location-option" value="map"> Choose Location on Map
+                    </label>
+                </div>
+                <div id="manual-location-input" style="display:none;">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" placeholder="Enter location">
+                </div>
+                <div id="map-container" style="display:none;">
+                    <div id="map" style="height: 400px;"></div>
+                    <button id="confirm-location" style="display:none;">Confirm Location</button>
+                </div>
+                <input type="file" id="file-input" name="file" accept="image/*" style="display: none;">
+                <input type="hidden" id="location-input" name="location">
+                <button type="submit">Submit</button>
+            </form>
+            <p id="location-display"></p>
+            <div id="uploaded-images"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pollution Website</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARkKoKFHvu6cu0-pzLdLyh5PGb8wclAck"></script>
+    <script src="{{ url_for('static', path='upload.js') }}"></script>
+</body>
+</html>

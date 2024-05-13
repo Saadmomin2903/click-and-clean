@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+uuid
+sqlite3
+fastapi-socketio==0.0.10
